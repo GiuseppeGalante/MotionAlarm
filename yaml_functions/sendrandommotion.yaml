@@ -1,0 +1,26 @@
+metadata:
+  name: sendrandommotion
+  labels:
+    nuclio.io/project-name: c24b3b6c-f01c-4fe9-8968-0fd1584ff589
+spec:
+  handler: "main:handler"
+  runtime: nodejs
+  resources: {}
+  image: "nuclio/processor-sendrandommotion:latest"
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPU: 75
+  version: 1
+  build:
+    image: ""
+    noCache: false
+    offline: false
+    dependencies: []
+    runtimeAttributes:
+      repositories: []
+    functionSourceCode: dmFyIG1xdHQgPSByZXF1aXJlKCJtcXR0Iik7DQp2YXIgdXJsID0gcmVxdWlyZSgidXJsIik7DQoNCnZhciBtcXR0X3VybCA9IHVybC5wYXJzZSgibXF0dDovL2d1ZXN0Omd1ZXN0QElOU0VSVF9ZT1VSX0lQOjE4ODMiKTsNCnZhciBhdXRoID0gKG1xdHRfdXJsLmF1dGggfHwgIjoiKS5zcGxpdCgiOiIpOw0KdmFyIHVybCA9ICJtcXR0Oi8vIiArIG1xdHRfdXJsLmhvc3Q7DQp2YXIgb3B0aW9ucyA9IHsNCiAgcG9ydDogbXF0dF91cmwucG9ydCwNCiAgY2xpZW50SWQ6ICJtcXR0anNfIiArIE1hdGgucmFuZG9tKCkudG9TdHJpbmcoMTYpLnNsaWNlKDMpLA0KICB1c2VybmFtZTogYXV0aFswXSwNCiAgcGFzc3dvcmQ6IGF1dGhbMV0sDQp9Ow0KDQpleHBvcnRzLmhhbmRsZXIgPSBmdW5jdGlvbiAoY29udGV4dCwgZXZlbnQpIHsNCiAgdmFyIGNsaWVudCA9IG1xdHQuY29ubmVjdCh1cmwsIG9wdGlvbnMpOw0KDQogIGNsaWVudC5vbigiY29ubmVjdCIsIGZ1bmN0aW9uICgpIHsNCiAgICB2YXIgbXNnID0gTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpICogMikudG9TdHJpbmcoKTsNCg0KICAgIGNsaWVudC5wdWJsaXNoKCJpb3Qvc2Vuc29ycy9tb3Rpb24iLCBtc2csIGZ1bmN0aW9uICgpIHsNCiAgICAgIGNsaWVudC5lbmQoKTsNCiAgICAgIGNvbnRleHQuY2FsbGJhY2soIk1vdGlvbiAiICsgbXNnKTsNCiAgICB9KTsNCiAgfSk7DQp9Ow0K
+    commands:
+      - 'npm install mqtt'
+    codeEntryType: sourceCode
+  platform: {}
+  readinessTimeoutSeconds: 60

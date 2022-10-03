@@ -1,0 +1,36 @@
+metadata:
+  name: consume_motion
+  labels:
+    nuclio.io/project-name: c24b3b6c-f01c-4fe9-8968-0fd1584ff589
+spec:
+  description: "Function the is called when a new message is arrived on the iot/sensors/motion queue."
+  handler: "main:handler"
+  runtime: nodejs
+  resources: {}
+  image: "nuclio/processor-consume_motion:latest"
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPU: 75
+  triggers:
+    myMqttTrigger:
+      kind: mqtt
+      attributes:
+        subscriptions:
+          - topic: iot/sensors/motion
+            qos: 0
+      workerAllocatorName: ""
+      url: "guest:guest@INSERT_YOUR_IP:1883"
+  version: 1
+  build:
+    image: ""
+    noCache: false
+    offline: false
+    dependencies: []
+    runtimeAttributes:
+      repositories: []
+    functionSourceCode: dmFyIGFtcXAgPSByZXF1aXJlKCdhbXFwbGliJyk7CiAgICAgICAgdmFyIEZVTkNUSU9OX05BTUUgPSAiY29uc3VtZV9tb3Rpb24iOwogICAgICAgIGZ1bmN0aW9uIHNlbmRfZmVlZGJhY2sobXNnKXsKICAgICAgICAgICAgdmFyIHEgPSAnaW90L3NlbnNvcnMvYW5zd2FyZSc7CiAgICAgICAgICAgIHZhciBxbG9nPSdpb3QvbG9ncyc7CiAgICAgICAgICAgIGFtcXAuY29ubmVjdCgnYW1xcDovL2d1ZXN0Omd1ZXN0QElOU0VSVF9ZT1VSX0lQOjU2NzInKS50aGVuKGZ1bmN0aW9uKGNvbm4pIHsKICAgICAgICAgICAgICAgIHJldHVybiBjb25uLmNyZWF0ZUNoYW5uZWwoKS50aGVuKGZ1bmN0aW9uKGNoKSB7CiAgICAgICAgICAgICAgICAgICAgdmFyIG9rID0gY2guYXNzZXJ0UXVldWUocSwge2R1cmFibGU6IGZhbHNlfSk7CiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIG9rLnRoZW4oZnVuY3Rpb24oX3FvaykgewogICAgICAgICAgICAgICAgICAgICAgICBpZihtc2c9PTEpCiAgICAgICAgICAgICAgICAgICAgICAgICAgY2guc2VuZFRvUXVldWUocSwgQnVmZmVyLmZyb20obXNnKSk7CiAgICAgICAgICAgICAgICAgICAgICAgIGVsc2UKICAgICAgICAgICAgICAgICAgICAgICAgICBjaC5zZW5kVG9RdWV1ZShxbG9nLEJ1ZmZlci5mcm9tKG1zZykpOwogICAgICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKCIgW3hdIFNlbnQgJyVzJyIsIG1zZyk7CiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGNoLmNsb3NlKCk7CiAgICAgICAgICAgICAgICAgICAgfSk7CiAgICAgICAgICAgICAgICB9KS5maW5hbGx5KGZ1bmN0aW9uKCkgeyAKICAgICAgICAgICAgICAgICAgICAgICAgY29ubi5jbG9zZSgpOwogICAgICAgICAgICAgICAgICAgIH0pOwogICAgICAgICAgICB9KS5jYXRjaChjb25zb2xlLndhcm4pOwogICAgICAgIH0KCiAgICAgICAgZnVuY3Rpb24gYmluMnN0cmluZyhhcnJheSl7CiAgICAgICAgICB2YXIgcmVzdWx0ID0gIiI7CiAgICAgICAgICBmb3IodmFyIGkgPSAwOyBpIDwgYXJyYXkubGVuZ3RoOyArK2kpewogICAgICAgICAgICByZXN1bHQrPSAoU3RyaW5nLmZyb21DaGFyQ29kZShhcnJheVtpXSkpOwogICAgICAgICAgfQogICAgICAgICAgcmV0dXJuIHJlc3VsdDsKICAgICAgICB9CgogICAgICAgIGV4cG9ydHMuaGFuZGxlciA9IGZ1bmN0aW9uKGNvbnRleHQsIGV2ZW50KSB7CiAgICAgICAgICAgIHZhciBfZXZlbnQgPSBKU09OLnBhcnNlKEpTT04uc3RyaW5naWZ5KGV2ZW50KSk7CiAgICAgICAgICAgIHZhciBfZGF0YSA9IGJpbjJzdHJpbmcoX2V2ZW50LmJvZHkuZGF0YSk7CgogICAgICAgICAgICBjb250ZXh0LmNhbGxiYWNrKCJmZWVkYmFjayAiK19kYXRhKTsKCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJUUklHR0VSICIrX2RhdGEpOwogICAgICAgICAgICBzZW5kX2ZlZWRiYWNrKF9kYXRhKTsKICAgICAgICB9Ow==
+    commands:
+      - 'npm install amqplib'
+    codeEntryType: sourceCode
+  platform: {}
+  readinessTimeoutSeconds: 60

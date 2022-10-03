@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "mssql": "^9.0.1",
+    "amqplib": "^0.8.0",
+    "dotenv": "^16.0.2",
+    "mqtt": "^4.3.7",
+    "telegraf": "^4.7.0"
+  }
+}
